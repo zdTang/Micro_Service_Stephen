@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
-const posts = [];
+const posts = {};
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
