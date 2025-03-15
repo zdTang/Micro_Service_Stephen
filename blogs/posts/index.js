@@ -1,21 +1,23 @@
-const express = require('express');
-const { randomBytes } = require('crypto');
-const bodyParser = require('body-parser');
+const express = require("express");
+const { randomBytes } = require("crypto");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 const posts = {};
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
 
-app.get('/posts', (req, res) => {
+app.get("/posts", (req, res) => {
   res.send(posts);
 });
 
-app.post('/posts', (req, res) => {
-  const id = randomBytes(4).toString('hex');
+app.post("/posts", (req, res) => {
+  const id = randomBytes(4).toString("hex");
   const title = req.body.title;
   posts[id] = {
     id,
@@ -25,5 +27,5 @@ app.post('/posts', (req, res) => {
 });
 
 app.listen(4000, () => {
-  console.log('Server is running on port 4000');
+  console.log("Server is running on port 4000");
 });

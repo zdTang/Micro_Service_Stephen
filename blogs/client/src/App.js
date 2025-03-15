@@ -1,5 +1,12 @@
+import PostCreate from "./PostCreate";
 const App = () => {
-  return <div>Blog App</div>;
+  return (
+    <div>
+      <>
+        <PostCreate />
+      </>
+    </div>
+  );
 };
 
 export default App;
