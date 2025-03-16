@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-const PostCreate = () => {
+const PostCreate = ({ needTrigger }) => {
   //This is classic React state management.
   // We use the useState hook to create a piece of state called title.
   // The initial value of title is an empty string.
@@ -11,6 +11,7 @@ const PostCreate = () => {
     console.log(title);
     await axios.post("http://localhost:4000/posts", { title });
     setTitle("");
+    needTrigger(Math.random());
   };
 
   return (
