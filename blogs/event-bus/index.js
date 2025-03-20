@@ -7,8 +7,8 @@ app.use(bodyParser.json());
 
 app.post("/events", async (req, res) => {
   const event = req.body;
-  await axios.post("http://localhost:4000/events", event); // sent event to comment
-  await axios.post("http://localhost:4001/events", event); // sent event to post
+  await axios.post("http://localhost:4000/events", event); // sent event to post service
+  await axios.post("http://localhost:4001/events", event); // sent event to comment Service
   //Be aware, if one endpoint is down, the other will still work, so need use try catch block
 
   res.send({ status: "OK" });
