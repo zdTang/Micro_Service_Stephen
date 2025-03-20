@@ -5,7 +5,8 @@ import CommentList from "./CommentList";
 const PostList = () => {
   const [posts, setPosts] = useState({});
   const fetchPosts = async () => {
-    const res = await axios.get("http://localhost:4000/posts");
+    const res = await axios.get("http://localhost:4002/posts"); // fetch data from query service instead of from Post service
+    console.log(res.data);
     setPosts(res.data);
   };
   //[]means only triggered during the mounting of the component

@@ -11,6 +11,10 @@ app.get('/posts', (req, res) => {
   res.send(posts);
 });
 
+const posts = {};
+
+// The query service will listen for events from the event bus
+// and update its own data structure accordingly
 app.post('/events', (req, res) => {
   const {type, data} = req.body;
   console.log(type, data);
@@ -23,6 +27,7 @@ app.post('/events', (req, res) => {
     const post = posts[postId];
     post.comments.push({id, content});
   }
+  console.log(posts);
   });
 
 app.listen(4002, () => {
